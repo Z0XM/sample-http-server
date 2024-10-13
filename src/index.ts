@@ -2,12 +2,16 @@ import Fastify from 'fastify';
 import closeWithGrace from 'close-with-grace';
 import { appEnv } from '@/constants/env.js';
 import appService from './app.js';
+import { pinoLogger } from '@/common/logger.js';
 
-const app = Fastify();
+const app = Fastify({
+    loggerInstance: pinoLogger
+});
 
 app.register(appService);
 
 closeWithGrace({ delay: 500 }, async function ({ signal, err, manual }) {
+    console.log('hmmm');
     if (err) app.log.error(err);
     await app.close();
 });

@@ -10,6 +10,7 @@
         "esModuleInterop": true,
         "paths": {
             "@/constants/*": ["src/constants/*"],
+            "@/common/*": ["src/common/*"],
             "@/app/services": ["src/app/services/index.js"],
             "@/app/interfaces": ["src/app/interfaces/index.js"],
             "@/app/repository": ["src/app/repository/index.js"],
