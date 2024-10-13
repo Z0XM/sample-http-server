@@ -1,0 +1,21 @@
+{
+    "extends": "fastify-tsconfig",
+    "compilerOptions": {
+        "baseUrl": "./",
+        "outDir": "dist",
+        "sourceMap": true,
+        "moduleResolution": "NodeNext",
+        "module": "NodeNext",
+        "target": "ES2022",
+        "esModuleInterop": true,
+        "paths": {
+            "@/constants/*": ["src/constants/*"],
+            "@/app/services": ["src/app/services/index.js"],
+            "@/app/interfaces": ["src/app/interfaces/index.js"],
+            "@/app/repository": ["src/app/repository/index.js"],
+            "@/app/routes/common/*": ["src/app/routes/common/*"]
+        }
+    },
+    "include": ["src/**/*.ts"],
+    "exclude": ["node_modules", "dist"]
+}
