@@ -1,14 +1,10 @@
 import * as path from 'path';
 import AutoLoad, { AutoloadPluginOptions } from '@fastify/autoload';
 import { FastifyPluginAsync, FastifyServerOptions } from 'fastify';
-import { fileURLToPath } from 'url';
 import { pinoLogger } from '@/common/logger.js';
 
 // custom
 import { serializerCompiler, validatorCompiler } from 'fastify-type-provider-zod';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 export interface AppOptions extends FastifyServerOptions, Partial<AutoloadPluginOptions> {
     // Place your custom options for app below here.
@@ -44,6 +40,14 @@ const app: FastifyPluginAsync<AppOptions> = async (fastify, opts): Promise<void>
         dir: path.join(__dirname, 'app/routes'),
         // ignoreFilter: (path) => path.startsWith('/common'),
         options: { ...opts, prefix: '/api' },
+        forceESM: true
+    });
+
+    // This loads all plugins defined in public
+    // define your public routes in one of these
+    void fastify.register(AutoLoad, {
+        dir: path.join(__dirname, 'public'),
+        options: { ...opts },
         forceESM: true
     });
 };

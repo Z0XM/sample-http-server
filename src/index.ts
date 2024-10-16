@@ -15,7 +15,7 @@ closeWithGrace({ delay: 500 }, async function ({ signal, err, manual }) {
     await app.close();
 });
 
-app.listen({ port: appEnv.APP_PORT }, (err) => {
+app.listen({ port: appEnv.APP_PORT, host: appEnv.APP_HOST }, (err) => {
     if (err) {
         app.log.error(err);
         process.exit(1);

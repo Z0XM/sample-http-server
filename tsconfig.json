@@ -4,9 +4,9 @@
         "baseUrl": "./",
         "outDir": "dist",
         "sourceMap": true,
-        "moduleResolution": "NodeNext",
-        "module": "NodeNext",
-        "target": "ES2022",
+        "moduleResolution": "Node",
+        "module": "CommonJS",
+        "target": "ES6",
         "esModuleInterop": true,
         "paths": {
             "@/constants/*": ["src/constants/*"],

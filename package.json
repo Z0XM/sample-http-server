@@ -1,9 +1,8 @@
 {
-  "type": "module",
   "name": "sample-http-server",
   "version": "1.0.0",
   "description": "This project was bootstrapped with Fastify-CLI.",
-  "main": "app.ts",
+  "main": "index.ts",
   "directories": {
     "test": "test"
   },
